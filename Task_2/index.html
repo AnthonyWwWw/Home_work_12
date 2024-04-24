@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css"  href="css/main.css">
+</head>
+<body>
+        <!--19. Використання подій
+
+            Створіть HTML-сторінку з декількома кнопками. Ваше завдання - створити обробник подій для батьківського елементу, який відслідковуватиме кліки на всіх кнопках.
+            Покроковий план:
+
+            1. Створіть HTML-елементи: батьківський контейнер з декількома вкладеними кнопками.
+
+            2. Додайте обробник подій до батьківського контейнера, який відслідковуватиме кліки.
+
+            3. Після кліку на будь-якій кнопці, виведіть повідомлення про те, яка саме кнопка була клікнута.-->
+            
+        <div class="conteiner" id="conteiner">
+            <button>button 1</button>
+            <button>button 2</button>
+            <button>button 3</button>
+        </div>
+
+        <script>
+            document.querySelector("#conteiner").addEventListener("click", function(event){
+                let element = event.target;
+
+                if (element.id !== "conteiner"){
+                    alert(`Було натиснуто: ${element.textContent}`)
+                }
+            })
+        </script>
+</body>
+</html>

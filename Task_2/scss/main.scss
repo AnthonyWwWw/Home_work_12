@@ -1,0 +1,39 @@
+@import './null.scss';
+
+///----------------------import------------------///
+
+///-------------------variables------------------///
+
+///-----------------end-variables----------------///
+
+///----------------------global------------------///
+
+///--------------------end-global------------------///
+
+
+///-----------------------body--------------------///
+
+div{
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+button{
+    width: 350px;
+    height: 100px;
+    color: #c1c9cd;
+    font-size: 30px;
+    background-color: #3b4834;
+    border-radius: 60px;
+    margin: 20px;
+    transition-duration: 1s;
+    transition-property: all;
+
+    &:hover{
+        background-color: #6c7355;
+    }
+}
+
+///--------------------END-body-------------------///
