@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css"  href="css/main.css">
+</head>
+<body>
+        <!-- 18. Перехід на сторінку
+
+            На сторінці є дві кнопки. При натисканні на першу кнопку користувач повинен ввести в prompt посилання, 
+            при натисканні на другу – переадресовується на інший сайт (за раніше введеним посиланням). -->
+
+        <button class="button_addLink button" id="button_addLink">Додати посилання</button>
+        <a class="button_transitionByLink button" id="button_transitionByLink">Перейти за посилання</a>
+            
+        <script>
+            let saveAddLink = addLink;// Оголошуємо змінну для зберігання посилання
+            let buttonAddLink = document.querySelector("#button_addLink");
+            let buttonTransition = document.querySelector("#button_transitionByLink");
+        
+            buttonAddLink.addEventListener("click", addLink);  
+              
+            buttonTransition.addEventListener("click", function(){
+                buttonTransition.href = saveAddLink;
+            })
+            
+            function addLink(){
+                let linkFromUser = prompt("Додайте будь-яке посилання:");
+                saveAddLink = correctnessCheckLink(linkFromUser);
+            }
+            
+            // Функція для перевірки коректності посилання
+            function correctnessCheckLink(link){
+                let patternForAudit = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/;
+        
+                if (patternForAudit.test(link)){
+                    return link;
+                }else{
+                    alert("Посилання введено некоректно");
+                }
+            }
+        </script>
+</body>
+</html>

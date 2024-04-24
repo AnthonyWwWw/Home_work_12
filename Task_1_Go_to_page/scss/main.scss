@@ -1,0 +1,52 @@
+@import './null.scss';
+
+///----------------------import------------------///
+
+///-------------------variables------------------///
+
+///-----------------end-variables----------------///
+
+///----------------------global------------------///
+
+///--------------------end-global------------------///
+
+
+///-----------------------body--------------------///
+body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.button {
+  
+  background-color: #161811;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  height: 100px;
+}
+
+.button:hover {
+  background-color: #3b4834;
+}
+
+.button_addLink {
+  margin: 30px;
+}
+
+.button_transitionByLink {
+  background-color: #6c7355;
+  align-content: center;
+  text-align: center;
+  margin: 30px;
+}
+
+.button_transitionByLink:hover {
+  background-color: #989e8f;
+}
+
+///--------------------END-body-------------------///
