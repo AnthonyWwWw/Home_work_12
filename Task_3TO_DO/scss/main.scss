@@ -1,0 +1,114 @@
+@import './null.scss';
+
+///----------------------import------------------///
+
+///-------------------variables------------------///
+$fontFamaliMontserrat: "Montserrat", sans-serif;
+///-----------------end-variables----------------///
+
+///----------------------global------------------///
+
+///--------------------end-global------------------///
+
+
+///-----------------------body--------------------///
+
+.conteiner_pageAddTask {
+    width: 600px;
+    margin: 0 auto;
+    display: flex;
+    margin-top: 30px;
+    align-items: end;
+}
+
+.page_addTask{
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    font-family: $fontFamaliMontserrat;
+    color: #3b4834;
+    // font-optical-sizing: auto;
+    font-weight: 500;
+    // font-style: normal;
+    font-size: 40px;
+}
+.input {
+    margin-top: 20px;
+    font-family: $fontFamaliMontserrat;
+    color: #3b4834;
+    font-size: 20px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    padding-left: 5px;
+}
+
+.buttonAddLink{
+    font-family: $fontFamaliMontserrat;
+    background-color: #989e8f;
+    color: aliceblue;
+    width: 200px;
+    height: 30px;
+    margin-left: 40px;
+    border-radius: 30px;
+    transition-duration: 1s;
+    transition-property: all;
+    
+    &:hover{
+        background-color: #161811;
+    }
+}
+
+.conteiner_taskList{
+    width: 800px;
+    margin: 0 auto;
+    display: flex;
+    margin-top: 30px;
+}
+
+.illumination{
+    background-color: #c52e2e;
+    color: aliceblue;
+    border-radius: 20px;
+}
+
+.taskList{
+    display: block;
+    font-family: $fontFamaliMontserrat;
+    color: #3b4834;
+    font-size: 20px;
+
+    & li{
+        margin-top: 20px;
+        width: 450px; 
+        padding: 5px;
+        word-wrap: break-word;
+        position: relative;
+        text-align: inherit;
+        transition-duration: 1s;
+        transition-property: all;
+    }
+
+    & button{
+        background-color: #989e8f;
+        color: aliceblue;
+        width: 200px;
+        height: 30px;
+        margin-left: 40px;
+        border-radius: 30px;
+        transition-duration: 1s;
+        transition-property: all;
+    
+        &:hover{
+            background-color: #c52e2e;
+        }
+    }
+}
+
+.buttonRemove {
+    position: absolute;
+    top: 0; 
+    right: -208px;
+}
+
+///--------------------END-body-------------------///

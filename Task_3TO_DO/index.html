@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"  href="css/main.css">
+</head>
+<body>
+        <!-- 20. TODO лист
+            Створіть HTML-сторінку, яка містить список завдань (to-do list) з можливістю додавання нових завдань. Ваше ціль - використовуючи делегування подій, створити обробник подій для списку завдань, який дозволить видаляти завдання при кліку на них.
+
+            Покроковий план:
+
+            Створіть HTML-елементи: список завдань ul, текстове поле для вводу нових завдань та кнопку для додавання.
+            Додайте обробник подій до списку завдань ul, використовуючи делегування.
+            При кліку на будь-якій кнопці видалення, видаліть цей пункт.
+            Додайте можливість вводити нові завдання у текстове поле і додавати їх до списку за допомогою кнопки.-->
+            
+            <div class="conteiner_pageAddTask">
+                <div class="page_addTask">
+                    <label for="input" class="label" id="label">Нове завдання</label>
+                    <input type="text" class="input" id="input" placeholder="Створіть нове завдання">
+                </div>
+                <button class="buttonAddLink" id="buttonAddLink">Додати завдання</button>
+            </div>
+            
+            <div class="conteiner_taskList" id="conteiner_taskList">
+                <ul class="taskList" id="taskList">
+                </ul>
+            </div>
+            
+            <script>
+                const taskList = document.querySelector("#taskList");
+                const inputField = document.querySelector("#input");
+                const addButton = document.querySelector("#buttonAddLink");
+
+                taskList.addEventListener("click", function(event) {// Додавання обробника подій до списку завдань з використанням делегування
+                    const target = event.target;
+                    if (target.classList.contains("buttonRemove")) {
+                        target.parentElement.remove();
+                    }
+                });
+
+               
+                addButton.addEventListener("click", function() { // Додавання обробника подій до кнопки "Додати завдання"
+                    const newTaskContent = checkingForCorrectness();
+                    if (newTaskContent) {
+                        createNewTask(newTaskContent);
+                        clearInput();
+                    }
+                });
+
+                function createNewTask(content) { // Функція для створення нового завдання
+                    const newElement = document.createElement("li");
+                    newElement.textContent = content;
+
+                    const newButtonRemove = document.createElement("button");
+                    newButtonRemove.textContent = "Видалити";
+                    newButtonRemove.classList.add("buttonRemove");
+
+                    newButtonRemove.addEventListener("mouseover", function(element){
+                        const target = event.target;
+                        if (target.classList.contains("buttonRemove")) {
+                            target.parentElement.classList.add("illumination");
+                    }
+                    });
+
+                    newButtonRemove.addEventListener("mouseout", function(element){
+                        const target = event.target;
+                        if (target.classList.contains("buttonRemove")) {
+                            target.parentElement.classList.remove("illumination");
+                    }
+                    });
+
+                    taskList.appendChild(newElement);
+                    newElement.appendChild(newButtonRemove);
+                }
+
+                function checkingForCorrectness() { // Функція для перевірки коректності введеного тексту
+                    const inputContent = inputField.value;
+                    if (inputContent.trim() !== "") {
+                        return inputContent;
+                    } else {
+                        alert("Поле має бути заповненим");
+                        return null;
+                    }
+                }
+
+                function clearInput() {// Функція для очищення поля вводу
+                    inputField.value = "";
+                }
+            </script>
+</body>
+</html>
