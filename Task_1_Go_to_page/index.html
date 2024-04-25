@@ -15,31 +15,40 @@
         <a class="button_transitionByLink button" id="button_transitionByLink">Перейти за посилання</a>
             
         <script>
-            let saveAddLink = addLink;// Оголошуємо змінну для зберігання посилання
+            let saveAddLink = ''; // Початкове значення порожнього рядка
             let buttonAddLink = document.querySelector("#button_addLink");
             let buttonTransition = document.querySelector("#button_transitionByLink");
-        
-            buttonAddLink.addEventListener("click", addLink);  
-              
+
+            buttonAddLink.addEventListener("click", addLink);
+
             buttonTransition.addEventListener("click", function(){
-                buttonTransition.href = saveAddLink;
+                if (saveAddLink !== '') {
+                    buttonTransition.href = saveAddLink;
+                } else {
+                    alert("Спочатку введіть посилання!");
+                }
             })
-            
+
             function addLink(){
                 let linkFromUser = prompt("Додайте будь-яке посилання:");
-                saveAddLink = correctnessCheckLink(linkFromUser);
+                
+                if (linkFromUser !== null && linkFromUser.trim() !== '') {// Перевірка, чи користувач взагалі ввів значення
+                    saveAddLink = correctnessCheckLink(linkFromUser);
+                } else {
+                    alert("Ви не ввели посилання!");
+                }
             }
-            
-            // Функція для перевірки коректності посилання
-            function correctnessCheckLink(link){
+
+            function correctnessCheckLink(link){// Функція для перевірки коректності посилання
                 let patternForAudit = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/;
-        
+
                 if (patternForAudit.test(link)){
                     return link;
-                }else{
+                } else {
                     alert("Посилання введено некоректно");
                 }
             }
+
         </script>
 </body>
 </html>
