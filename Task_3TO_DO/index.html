@@ -60,16 +60,16 @@
                     const newButtonRemove = document.createElement("button");
                     newButtonRemove.textContent = "Видалити";
                     newButtonRemove.classList.add("buttonRemove");
-
+                    
                     newButtonRemove.addEventListener("mouseover", function(element){
-                        const target = event.target;
+                        const target = element.target;
                         if (target.classList.contains("buttonRemove")) {
                             target.parentElement.classList.add("illumination");
                     }
                     });
 
                     newButtonRemove.addEventListener("mouseout", function(element){
-                        const target = event.target;
+                        const target = element.target;
                         if (target.classList.contains("buttonRemove")) {
                             target.parentElement.classList.remove("illumination");
                     }
